@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 
 class WorkerController extends Controller
 {
+
     public function index()
     {
-
-        $worker = Worker::query()->where('company_id', auth()->user()->company_id)->get();
+        $worker = Worker::query()->with('company')->get();
 
         return WorkerResource::collection($worker)->all();
     }
@@ -27,7 +27,7 @@ class WorkerController extends Controller
             'position' => $request->input('position'),
             'phone' => $request->input('phone'),
             'address' => $request->input('address'),
-            'company_id' => auth()->user()->company_id,
+            'company_id' => $request->input('company_id'),
 
         ]);
 
@@ -49,7 +49,7 @@ class WorkerController extends Controller
             'position' => $request->input('position'),
             'phone' => $request->input('phone'),
             'address' => $request->input('address'),
-            'company_id' => auth()->user()->company_id,
+            'company_id' => $request->input('company_id'),
 
         ]);
 

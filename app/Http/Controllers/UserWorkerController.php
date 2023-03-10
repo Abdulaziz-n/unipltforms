@@ -11,8 +11,7 @@ class UserWorkerController extends Controller
 {
     public function index()
     {
-
-        $worker = Worker::query()->where('company_id', auth()->user()->company_id)->get();
+        $worker = Worker::query()->where('company_id', (integer)auth()->user()->company_id)->get();
 
         return WorkerResource::collection($worker)->all();
     }

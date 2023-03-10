@@ -6,7 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\WorkerController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\UserWorkerController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -58,21 +58,15 @@ Route::group(['middleware' => 'auth:api'], function () {
 
         Route::group(['prefix' => 'user/worker'], function (){
 
-            Route::get('/', [WorkerController::class, 'index']);
-            Route::post('/', [WorkerController::class, 'store']);
-            Route::get('/{worker}', [WorkerController::class, 'view']);
-            Route::put('/{worker}', [WorkerController::class, 'update']);
-            Route::delete('/{worker}', [WorkerController::class, 'destroy']);
+            Route::get('/', [UserWorkerController::class, 'index']);
+            Route::post('/', [UserWorkerController::class, 'store']);
+            Route::get('/{worker}', [UserWorkerController::class, 'view']);
+            Route::put('/{worker}', [UserWorkerController::class, 'update']);
+            Route::delete('/{worker}', [UserWorkerController::class, 'destroy']);
 
         });
 
     });
-
-
-
-
-
-
 
 });
 

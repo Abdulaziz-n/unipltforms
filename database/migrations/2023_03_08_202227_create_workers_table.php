@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('surname');
             $table->string('position');
-            $table->integer('phone');
+            $table->bigInteger('phone');
             $table->string('address');
             $table->string('company_id');
 

@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@unplt.com',
             'password' => bcrypt('password'),
             'role' => 'Admin',
+            'company_id' => 1
 
         ]);
     }

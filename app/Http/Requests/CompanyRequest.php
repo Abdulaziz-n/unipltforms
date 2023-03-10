@@ -13,7 +13,7 @@ class CompanyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class CompanyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string',
+            'director' => 'required|string',
+            'address' => 'required|string',
+            'email' => 'required|email',
+            'website' => 'required|string',
+            'phone' => 'required|integer',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'string' => 'The :attribute must be a string',
+            'integer' => 'The :attribute must be a an integer',
+            'email' => 'The :attribute must be a email format',
         ];
     }
 }

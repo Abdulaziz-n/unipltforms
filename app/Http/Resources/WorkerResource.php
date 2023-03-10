@@ -6,6 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class WorkerResource extends JsonResource
 {
+    public static $wrap = false;
     /**
      * Transform the resource into an array.
      *
@@ -14,6 +15,16 @@ class WorkerResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'passport_series' => $this->passport_series,
+            'last_name' => $this->last_name,
+            'first_name' => $this->first_name,
+            'surname' => $this->surname,
+            'position' => $this->position,
+            'phone' => $this->phone,
+            'address' => $this->address,
+            'company' => $this->whenLoaded('company'),
+        ];
     }
 }

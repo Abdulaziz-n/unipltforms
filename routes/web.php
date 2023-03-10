@@ -17,5 +17,3 @@ use App\Http\Controllers\PrizeController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('prize', [PrizeController::class, 'setPrize']);

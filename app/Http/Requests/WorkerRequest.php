@@ -13,7 +13,7 @@ class WorkerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,23 @@ class WorkerRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'passport_series' => 'required|string',
+            'last_name' => 'required|string',
+            'first_name' => 'required|string',
+            'surname' => 'required|string',
+            'position' => 'required|string',
+            'phone' => 'required|integer',
+            'address' => 'required|string',
+            'company_id' => 'required|integer',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'string' => 'The :attribute must be a string',
+            'integer' => 'The :attribute must be a an integer',
         ];
     }
 }
+
